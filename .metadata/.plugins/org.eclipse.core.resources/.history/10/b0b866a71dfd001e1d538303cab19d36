@@ -1,0 +1,80 @@
+/*
+IsFull(V)
+1. se (tail + 1) % |V| == head
+2.    retorna VERDADEIRO
+3. senão
+4.    retorna FALSO
+
+Enqueue(V, x)
+1. se !IsFull(V)
+2.    V[tail] ← x
+3.    tail ← (tail + 1) % |V|
+4. senão
+5.    erro overflow
+
+IsEmpty()
+1. se head == tail
+2.    retorna VERDADEIRO
+3. senão
+4.    retorna FALSO
+
+Dequeue(V)
+1. se !IsEmpty()
+2.    x ← V[head]
+3.    head ← (head + 1) % |V|
+4.    retorna x
+5. senão
+6.    erro underflow
+ */
+
+package entities;
+public class CircleQueue {
+    private int[] array;
+    private int head;
+    private int tail;
+    private int quantity;
+    private int count;
+
+    public CircleQueue(int k) {
+    	quantity = k;
+        array = new int[quantity];
+        head = 0;
+        tail = 0;
+        count = 0;
+    }
+
+    public void enqueue(int value) {
+        if(!isFull()) {
+        	array[tail % quantity] = value;
+        	count++;
+        }
+    }
+
+    public int dequeue() {
+    	int x = 0;
+        if (!isEmpty()) {
+            x = array[head % quantity];
+        }
+        return x;      
+    }
+
+    public boolean isFull() {
+        return count == quantity;
+    }
+
+    public boolean isEmpty() {
+        return head == -1;
+    }
+
+    public void printQueue() {
+        if (isEmpty()) {
+            System.out.println("A fila está vazia.");
+            return;
+        }
+        System.out.print("Fila: ");
+        for (int i = head; i != tail; i = (i + 1) % quantity) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println(array[tail]);
+    }
+}

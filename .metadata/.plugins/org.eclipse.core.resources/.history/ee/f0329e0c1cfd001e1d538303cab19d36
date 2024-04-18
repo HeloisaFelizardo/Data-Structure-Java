@@ -1,0 +1,27 @@
+package application;
+
+import entities.Queue;
+
+public class MainQueue {
+
+	public static void main(String[] args) {
+		Queue queue = new Queue(5);
+		queue.enqueue(1);
+		queue.enqueue(2);
+		queue.enqueue(3);
+		queue.enqueue(4);
+		queue.enqueue(5);
+		queue.printQueue(); // Imprime: 1 2 3 4 5
+		queue.dequeue();
+		queue.dequeue();
+		queue.dequeue();
+		queue.printQueue(); // Imprime: 4 5
+		queue.enqueue(6);
+		queue.enqueue(7);
+		queue.enqueue(8);
+		queue.printQueue(); 
+		queue.dequeue();
+		queue.dequeue();	
+		queue.printQueue(); 
+	}
+}

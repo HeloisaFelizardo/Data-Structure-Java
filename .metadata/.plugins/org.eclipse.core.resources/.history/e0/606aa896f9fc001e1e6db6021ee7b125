@@ -1,0 +1,17 @@
+package entities;
+
+public class Stack {
+	private int[] stack;
+    private int head;    
+    private int capacity;
+    
+    public Stack(int k) {
+    	capacity = k;
+    	stack = new int[capacity]; 
+    	head = 0;
+    }
+    
+    public boolean isFull() {
+    	return head == stack.length;
+    }
+}

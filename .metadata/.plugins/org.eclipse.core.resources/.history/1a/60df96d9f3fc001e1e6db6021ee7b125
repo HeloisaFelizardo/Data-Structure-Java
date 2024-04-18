@@ -1,0 +1,71 @@
+/*1.
+ * IsFull(V)
+1. se tail=|V| ⊲|V| indica o tamanho de V
+2. retorna VERDADEIRO
+3. senão
+4. retorna FALSO
+
+2.
+Enqueue (V,x)
+1. se ! IsFull (V) ⊲ ! indica a operação lógica NÃO
+2. V [tail] ← x
+3. tail ← tail + 1 
+4. senão
+5. erro overflow
+
+3.
+IsEmpty()
+1. se head = tail
+2. retorna VERDADEIRO
+3. senão
+4. retorna FALSO
+
+4.
+Dequeue (V)
+1. se ! IsEmpty ()
+2. x ← V[head]
+3. head ← head + 1
+14
+15
+4. retorna x
+5. senão
+6. erro underflow
+ * 
+ * 
+ * Modifique os algoritmos 1, 2, 3 e 4 de modo que eles reflitam a ideia de uma fila circular. 
+Além disso, escolha uma linguagem de programação de sua preferência e implemente uma 
+fila circular.
+ */
+package entities;
+
+public class Main {
+
+	public static void main(String[] args) {
+		CircularQueue queue = new CircularQueue(5);
+
+		// Enfileirando elementos
+		queue.enqueue(1);
+		queue.enqueue(2);
+		queue.enqueue(3);
+		queue.enqueue(4);
+		queue.enqueue(5);
+		queue.enqueue(6);
+		System.out.println(queue.enqueue(6));
+		System.out.println(queue);
+		System.out.println(queue.isFull());
+		queue.dequeue();
+		// Desenfileirando elementos
+		// System.out.println(queue.dequeue()); // Saída: 1
+		// System.out.println(queue.dequeue()); // Saída: 2
+		// System.out.println(queue.dequeue()); // Saída: 3
+
+		// Enfileirando um novo elemento
+		// queue.enqueue(6);
+
+		// Desenfileirando elementos restantes
+		// while (!queue.isEmpty()) {
+		// System.out.println(queue.dequeue());
+		// }
+	}
+
+}

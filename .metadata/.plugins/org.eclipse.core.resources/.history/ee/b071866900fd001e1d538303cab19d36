@@ -1,0 +1,18 @@
+package application;
+
+import entities.Queue;
+
+public class MainQueue {
+
+	public static void main(String[] args) {
+		Queue queue = new Queue(5);
+	        queue.enqueue(1);
+	        queue.enqueue(2);
+	        queue.enqueue(3);
+	        queue.printQueue();  // Imprime: 1 2 3
+	        queue.dequeue();
+	        queue.printQueue();  // Imprime: 2 3
+
+	}
+
+}
